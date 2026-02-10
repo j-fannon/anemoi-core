@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Please add your functional changes to the appropriate section in the PR.
 Keep it human-readable, your future self will thank you!
 
+## [0.9.2](https://github.com/ecmwf/anemoi-core/compare/training-0.9.1...training-0.9.2) (2026-02-10)
+
+
+### Bug Fixes
+
+* Single interpolator ([#881](https://github.com/ecmwf/anemoi-core/issues/881)) ([4378de0](https://github.com/ecmwf/anemoi-core/commit/4378de0afd03010ef8b012b973d186961f67bbf0))
+
 ## [0.9.1](https://github.com/ecmwf/anemoi-core/compare/training-0.9.0...training-0.9.1) (2026-02-09)
 
 
