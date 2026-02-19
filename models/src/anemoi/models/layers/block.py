@@ -492,15 +492,16 @@ class GraphTransformerBaseBlock(BaseBlock, ABC):
             self.k_norm = layer_kernels.KeyNorm(self.out_channels_conv)
 
         self.layer_norm_attention = LayerNorm(normalized_shape=in_channels)
-        self.layer_norm_mlp_dst = LayerNorm(normalized_shape=out_channels)
+        self.layer_norm_mlp = LayerNorm(normalized_shape=out_channels)
         self.node_dst_mlp = nn.Sequential(
+            self.layer_norm_mlp,
             Linear(out_channels, hidden_dim),
-            layer_kernels.Activation(),
+            self.act_func(),
             Linear(hidden_dim, out_channels),
         )
 
     def run_node_dst_mlp(self, x, **layer_kwargs):
-        return self.node_dst_mlp(self.layer_norm_mlp_dst(x, **layer_kwargs))
+        return self.node_dst_mlp(x, **layer_kwargs)
 
     def get_qkve(
         self,
