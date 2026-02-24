@@ -496,7 +496,7 @@ class GraphTransformerBaseBlock(BaseBlock, ABC):
         self.node_dst_mlp = nn.Sequential(
             self.layer_norm_mlp,
             Linear(out_channels, hidden_dim),
-            self.act_func(),
+            layer_kernels.Activation(),
             Linear(hidden_dim, out_channels),
         )
 
